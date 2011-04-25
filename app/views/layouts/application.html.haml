@@ -1,0 +1,37 @@
+!!!XML
+!!! 5
+%html
+  %head
+    %title if(keithRaymond) { Web, Application and Flash Designer and Developer }
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+    %meta{:name => 'description', :content => 'Keith Raymond portfolio website of Ruby on Rails, PHP, Flash, Actionscript 3.0, Javascript and MySQL projects. Located in Harrisburg Pennsylvania'}
+    %link{:rel => "shortcut icon", :href=> "/favicon.ico"}
+    = stylesheet_link_tag 'html5_reset', 'base', 'gallery'
+    /[if IE]
+      = stylesheet_link_tag 'ie'
+    = javascript_include_tag 'prototype', 'effects','application', 'slideshow', 'gallery'
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+    - javascript_tag do
+      = yield :jstemplates
+  %body{:id => "#{params[:controller]}"}
+    %section#header
+      %header
+        %hgroup.hidden
+          %h1= link_to 'if Keith Raymond', '/'
+          %h2 Web, Application and Flash Designer/Developer
+        = render :partial => '/layouts/navigation', :locals => {:object => current_page(params)}
+    %section#content.clearfix
+      = yield
+    %section#footer
+      %footer.clearfix
+        = render :partial => '/layouts/navigation', :locals => {:object => current_page(params)}
+  :javascript
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22331051-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();

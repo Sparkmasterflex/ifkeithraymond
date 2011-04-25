@@ -1,0 +1,55 @@
+@mixin head-gradient {
+  background: -moz-linear-gradient(top, #50030D 7%, #890D1E 90%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(7%,#50030D), color-stop(90%,#890D1E));
+}
+
+@mixin foot-gradient {
+  background: -moz-linear-gradient(top, #890D1E 7%, #50030D 90%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(7%,#890D1E), color-stop(90%,#50030D));
+}
+
+@mixin button-gradient {
+  background: -moz-linear-gradient(top, #A82435 0%, #8B1423 50%, #6B0B17 51%, #50030D 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#A82435), color-stop(50%,#8B1423), color-stop(51%,#6B0B17), color-stop(100%,#50030D));
+}
+
+@mixin gradient($c1, $c2) {
+  background: -moz-linear-gradient(top, $c1 0%, $c2 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$c1), color-stop(100%,$c2)); /* webkit */
+}
+
+@mixin border-radius($px) {
+  -moz-border-radius: $px;
+  -webkit-border-radius: $px;
+}
+
+@mixin nav-style {
+  li { float: left;
+    a {
+      color: #f1f1f1;
+      display: block;
+      font-size: 1.56em;
+      padding: 0 0.42em;
+      letter-spacing: -2px;
+      text-shadow: 1px 1px 1px #222;
+      text-decoration: none;
+      &.projects { width: 4em; }
+      &:hover { text-transform: uppercase; }
+    }
+    &.current a { text-transform: uppercase; }
+  }
+}
+
+@mixin box-shadow-1px {
+  -moz-box-shadow: 1px 1px 1px #666;
+  -webkit-box-shadow: 1px 1px 1px #666;
+}
+
+@mixin box-shadow-inset {
+  -moz-box-shadow: -1px -1px 2px #666;
+  -webkit-box-shadow: -1px -1px 2px #666;
+}
+
+@mixin para_link_style {
+  a { color: #50030D; font-family: 'CourierStdMedium'; &:hover { color: #000; text-decoration: none; }}
+}

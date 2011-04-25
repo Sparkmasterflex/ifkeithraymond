@@ -1,0 +1,6 @@
+%li 
+  = link_to project_link.title, edit_project_path(project_link)
+  %ul
+    %li= preview_text(project_link.text)
+    %li= %(Started on #{project_link.start_date.strftime('%m/%d/%Y')})
+    %li= %(Ended on #{project_link.end_date.strftime('%m/%d/%Y')})

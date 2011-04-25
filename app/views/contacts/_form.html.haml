@@ -1,0 +1,21 @@
+= show_notice
+- form_for contact, :url => contacts_path, :html => {:method => :post, :id => 'contact-form'} do |f|
+  = render_error_msg(contact)
+  .formfield.clearfix
+    = f.label :name, raw("Name <span>{</span>")
+    = f.text_field :name, {:id => 'name'}
+    = f.label :name, raw("<span>}</span>"), {:class => 'end'}
+  .formfield.clearfix
+    = f.label :email, raw("Email <span>{</span>")
+    = f.text_field :email, {:id => 'email'}
+    = f.label :email, raw("<span>}</span>"), {:class => 'end'}
+  .formfield.clearfix
+    = f.label :phone, raw("Phone <span>{</span>")
+    = f.text_field :phone, {:id => 'phone'}
+    = f.label :phone, raw("<span>}</span>"), {:class => 'end'}
+  .formfield.clearfix
+    = f.label :message, raw("Message <span>{</span>")
+    = f.text_area :message, {:size => '25x7', :id => 'message'}
+    = f.label :message, raw("<span>}</span>"), {:class => 'bottom'}
+  .formfield.clearfix
+    = f.submit "send"

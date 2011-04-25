@@ -1,0 +1,12 @@
+#contact.col.left.brace
+  %h3
+    = @webpage.page_title
+    %span.courier> (keithRaymond)
+  %ul
+    %li.name Keith Raymond
+    %li Web, Application and Flash Designer/Developer
+    %li= link_to "keith@ifkeithraymond.com", "mailto:keith@ifkeithraymond.com"
+  %p= add_html_tags(@webpage.text)
+.col.right
+  %h3.center send me a message
+  = render :partial => '/contacts/form', :locals => {:contact => @contact}

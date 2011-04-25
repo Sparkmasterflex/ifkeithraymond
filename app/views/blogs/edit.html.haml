@@ -1,0 +1,7 @@
+.leftcol
+  %h3= raw "Edit <em>#{@blog.title}</em> Post"
+  - form_for @blog, :url => blog_path(@blog), :html => {:method => :put, :multipart => true, :id => 'blog-form'} do |f|
+    = render :partial => 'form', :locals => {:f => f}
+    .formfield
+      = f.submit "Update Blog Post"
+= render :partial => 'right_col', :locals => {:blog => @blog}

@@ -1,0 +1,10 @@
+.leftcol
+  %h3 Create Resume
+  - form_for @blog, :url => blogs_path(@blog), :html => {:method => :post, :multipart => true, :id => 'blog-form'} do |f|
+    = render :partial => 'form', :locals => {:f => f}
+    .formfield
+      = f.submit "Create Blog Post"
+.rightcol
+  #blog-images
+    %h3 Blog Images
+    %p No images attached to this blog

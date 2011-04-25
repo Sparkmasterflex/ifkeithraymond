@@ -1,0 +1,8 @@
+%article{:class => "#{cycle 'odd', 'even'}"}
+  %h4= link_to project.title, project_show_path(project)
+  = link_to "Edit", edit_project_path(project), {:class => 'edit icon hidden'} unless @current_user.nil?
+  %p.author= "URL: #{project.url.nil? ? "None" : project.url}"
+  %p= raw(preview_text(project.text))
+  %time{:datetime => "#{project.start_date.strftime('%Y-%m-%d')}"}= "Start date: #{project.start_date.strftime('%m/%d/%Y')}"
+  %time{:datetime => "#{project.end_date.strftime('%Y-%m-%d')}"}= end_date(project.end_date)
+  = link_to "Read more", project_show_path(project)

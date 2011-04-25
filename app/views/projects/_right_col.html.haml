@@ -1,0 +1,7 @@
+.rightcol
+  #project-features
+    %h3 Project Features
+    = render :partial => '/features/feature_desc', :collection => project.features, :locals => {:project => project}
+  #project-images
+    %h3 Project Images
+    = render :partial => '/images/slideshow_edit', :locals => {:object => project, :is_project => true}

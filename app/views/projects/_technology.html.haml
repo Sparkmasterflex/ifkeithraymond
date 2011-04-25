@@ -1,0 +1,4 @@
+.checkbox
+  = hidden_field_tag "project[tech_values][]", '0', {:id => nil}
+  = check_box_tag "project[tech_values][]", "#{key}", !f.object.technology.blank? && f.object.technology.to_s.include?(key.to_s), {:id => "tech-#{value}"}
+  = label_tag "tech-#{value}", value

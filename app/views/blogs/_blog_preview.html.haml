@@ -1,0 +1,8 @@
+%article{:class => "#{cycle 'odd', 'even'}"}
+  %h4= link_to blog.title, blog_show_path(blog)
+  = link_to "Edit", edit_blog_path(blog), {:class => 'edit icon hidden'} if params[:action] == 'index'
+  %p.author= "By: #{blog.author_name}"
+  %time{:datetime => blog.updated_at.strftime('%Y-%m-%d')}= blog.updated_at.strftime('%B %d, %Y')
+  %p= preview_text(blog.text)
+  %time{:datetime => "#{blog.created_at.strftime('%Y-%m-%d')}"}= blog.created_at.strftime('%b %d, %Y')
+  = link_to "Read more", blog_show_path(blog)

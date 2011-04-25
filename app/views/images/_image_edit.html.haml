@@ -1,0 +1,16 @@
+- unless image.id.nil? || (!image.attached_to.nil? && is_project)
+  %li{:id => "image-#{image.id}"}
+    .img-details.clearfix
+      = image_tag image.attachment.url(:thumb), {:alt => image.attachment_file_name}
+      %ul.image-links
+        %li= link_to "Enable for Slideshow", update_status_image_path(image), {:class => "add icon hidden#{disabled_link(image, 'enable')}", :title => "Enable Image"}
+        %li= link_to "Disable for Slideshow", update_status_image_path(image), {:class => "remove icon hidden#{disabled_link(image, 'disable')}", :title => "Disable Image"}
+        %li= link_to "Delete", image_path(image), {:class => "delete icon hidden", :title => "Delete Image"}
+      %p.captions= image.caption
+      .formfield
+        = label_tag 'image_position', "Position", {:id => nil}
+        = text_field_tag 'image_position', image.position, {:maxlength => 3, :size => 5, :data_position => image.position, :data_url => order_image_path(image)}
+      - if image.can_attach?
+        .formfield
+          = label_tag 'image_feature', "Attach to a feature", {:id => nil}
+          = select_tag 'image_feature', options_for_select(image.features)

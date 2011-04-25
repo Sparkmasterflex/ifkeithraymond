@@ -1,0 +1,9 @@
+.col.main.brace
+  %h3
+    blogs
+    %span.courier> (keithRaymond)
+  = render :partial => 'blog_preview', :collection => @blogs, :as => :blog
+  = will_paginate @blogs
+.col.sidebar
+  - unless @months.nil?
+    = render :partial => 'sidebar'

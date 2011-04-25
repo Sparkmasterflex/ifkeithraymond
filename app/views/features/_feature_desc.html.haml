@@ -1,0 +1,5 @@
+.feature-desc
+  %h5= feature_desc.feature
+  %p= feature_desc.description
+  %ul#slides
+    = render :partial => '/images/image_edit', :collection => feature_desc.seperated_images, :as => :image, :locals => {:is_project => false, :object => project}

@@ -1,0 +1,50 @@
+!!!XML
+!!! 5
+%html
+  %head
+    %title if(keithRaymond) { Web, Application and Flash Designer and Developer }
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+    = stylesheet_link_tag 'html5_reset', 'editor'
+    = javascript_include_tag 'prototype', 'effects','editor', 'dynamic-fields'
+    - javascript_tag do
+      = yield :jstemplates
+  %body#editor
+    %section#header
+      %header
+        %hgroup
+          %h1 Juggernaut Web Editor
+          %h2= "Edit #{AppSystem::NAME} Content"
+        %nav
+          %ul
+            %li= "Welcome, #{current_user.first_name}"
+            %li= link_to 'View Website', '/', {:rel => 'external'}
+            %li= link_to 'Log Out', logout_path
+    %section#content.clearfix
+      %nav
+        %ul
+          %li= link_to 'Editor Home', dashboard_path
+          %li
+            = link_to 'Webpages', webpages_path
+            %ul
+              %li= link_to "New Webpage", new_webpage_path
+              - @webpages.each do |web|
+                %li
+                  = link_to web.page_alias, edit_webpage_path(web)
+                  %ul
+                    %li= link_to "New Subpage", webpage_subpages_path(web)
+                    - web.subpages.each do |sub|
+                      %li= link_to sub.page_alias, edit_webpage_subpage_path(sub)
+          %li
+            = link_to 'Projects', projects_path
+            %ul
+              %li= link_to "New Project", new_project_path
+              - @projects.each do |project|
+                %li= link_to project.title, edit_project_path(project)
+          %li
+            = link_to 'Blogs', blogs_path
+            %ul
+              %li= link_to "New Blog", new_blog_path
+      #main-content
+        = yield
+    %section#footer
+      %footer.clearfix

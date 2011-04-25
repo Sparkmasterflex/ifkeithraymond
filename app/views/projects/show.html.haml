@@ -1,0 +1,36 @@
+.col.main.brace
+  %h3= raw "project<span class=\"courier\">(#{@project.title})</span>"
+  %article
+    #description.section
+      %p.author= @project.client.nil? ? "No Client" : "Client: #{@project.client}"
+      %p.author= "URL: #{@project.url.nil? ? "None" : @project.url}"
+      %h4 description
+      %p= add_html_tags(@project.text)
+    #status.section
+      %h4 status
+      %time{:datetime => "#{@project.start_date.strftime('%Y-%m-%d')}"}= "Start date: #{@project.start_date.strftime('%m/%d/%Y')}"
+      %time{:datetime => "#{@project.end_date.strftime('%Y-%m-%d')}"}= end_date(@project.end_date)
+      %p= raw "Development Stage: <span>#{Project::Status::LABELS[@project.status]}</span>"
+      %p Project's Progress:
+      #progress
+        %p{:data_progress => @project.progress}= "#{@project.progress}% Complete"
+        %p.white= "#{@project.progress}% Complete"
+    #features.section
+      %h4 features
+      = render :partial => '/features/feature_show', :collection => @project.features
+    #technology.section
+      %h4 technology
+      %ul
+        - @project.split_technology.each do |tech|
+          %li
+            = Project::Technology::LABELS[tech]
+            %ul
+              %li= Project::Technology::DESC[tech]
+.col.sidebar
+  - unless @images.blank?
+    %h3
+      gallery
+    %ul#gallery.clearfix
+      - @images.each do |img|
+        %li= link_to image_tag(img.attachment.url(:thumb), {:alt => @project.title, :title => img.caption}), img.attachment.url(:preview)
+  = render :partial => 'sidebar', :locals => {:project => @project}

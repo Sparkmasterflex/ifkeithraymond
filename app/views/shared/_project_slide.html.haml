@@ -1,0 +1,6 @@
+%li.project.clearfix
+  = hidden_field_tag :project_id, project_slide.id
+  %h3= project_slide.title
+  %p= slide_text(project_slide.text)
+  - unless project_slide.images.blank?
+    = image_tag project_slide.images.first.url(:home), {:alt => project_slide.images.first.caption, :title => "Empires at War - #{project_slide.images.first.caption}"}

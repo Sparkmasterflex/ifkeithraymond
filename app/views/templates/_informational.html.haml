@@ -1,0 +1,46 @@
+.col.left.brace
+  %h3
+    = @webpage.page_title
+    %span.courier> (keithRaymond)
+  #about-text
+    %p= add_html_tags(@webpage.text)
+  %h3
+    skills
+    %span.courier> (keithRaymond)
+  #resume-text
+    %ul#skill-list
+      %li
+        Front-end programming
+        %ul
+          %li XHTML/HTML5
+          %li CSS/CSS3
+          %li Javascript (Prototype and jQuery)
+          %li HAML/SASS
+          %li Flash/ActionScript 3.0
+      %li
+        Server-side programming
+        %ul
+          %li Ruby on Rails
+          %li Ruby
+          %li PHP
+      %li
+        Content Management Systems
+        %ul
+          %li Expression Engine
+          %li Wordpress
+          %li Joomla
+          %li Cushy
+      %li
+        Other technology
+        %ul
+          %li MySQL
+          %li Linux Server (Setup &amp; Mangagement)
+          %li Photoshop
+          %li InDesign
+.col.right
+  #about-imgs
+    = image_tag '/images/keith_egypt_1.png', {:id => 'constant', :alt => 'Egypt - January 2010', :title => 'Egypt - January 2010'}
+    - unless @webpage.images.enabled.blank?
+      %ul#slideshow
+        = render :partial => '/images/slideshow_image', :collection => @webpage.images.enabled
+

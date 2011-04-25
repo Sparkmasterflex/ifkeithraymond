@@ -1,0 +1,9 @@
+.leftcol
+  %h3= "Update #{@project.title}"
+  %p= raw(%(Use the form below to update the <em>"#{@project.title}"</em> project.))
+  - form_for @project, :url => project_path(@project), :html => {:method => :put, :multipart => true, :id => 'project-form'} do |f|
+    = render_error_msg(@project)
+    = render :partial => 'form', :locals => {:f => f}
+    .formfield
+      = f.submit "Update Project"
+= render :partial => 'right_col', :locals => {:project => @project}

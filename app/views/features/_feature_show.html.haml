@@ -1,0 +1,6 @@
+.feature.clearfix{:class => "#{cycle 'odd', 'even'}"}
+  .clearfix
+    %h5= feature_show.feature
+    %p= add_html_tags(feature_show.description)
+  = render :partial => '/features/feature_image', :collection => feature_show.seperated_images
+  

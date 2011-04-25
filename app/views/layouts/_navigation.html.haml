@@ -1,0 +1,7 @@
+%nav
+  %ul.courier
+    %li{:class => "#{is_current(object, 'home')}"}= link_to 'home',      '/'
+    %li{:class => "#{is_current(object, 'about')}"}= link_to 'about',     show_path({:page_alias => 'about'})
+    %li{:class => "#{is_current(object, 'projects')}"}= link_to 'projects',  all_projects_path, :class => 'projects'
+    %li{:class => "#{is_current(object, 'blogs')}"}= link_to 'blog',      all_blogs_path
+    %li{:class => "#{is_current(object, 'contact')}"}= link_to 'contact',   show_path({:page_alias => 'contact'})

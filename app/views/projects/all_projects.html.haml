@@ -1,0 +1,8 @@
+.col.main.brace
+  %h3
+    projects
+    %span.courier> (keithRaymond)
+  = render :partial => 'project_preview', :collection => @projects, :as => :project
+  = will_paginate @projects
+.col.sidebar
+  = render :partial => 'sidebar', :locals => {:projects => @projects}

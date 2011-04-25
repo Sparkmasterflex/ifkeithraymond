@@ -1,0 +1,15 @@
+.leftcol
+  %h3 Create a New Project
+  %p Use the form below to create a new project, filling out a title, description, and attaching or creating features/technologies to the project.
+  - form_for @project, :url => projects_path(@project), :html => {:method => :post, :multipart => true, :id => 'project-form'} do |f|
+    = render_error_msg(@project)
+    = render :partial => 'form', :locals => {:f => f}
+    .formfield
+      = f.submit "Create Project"
+.rightcol
+  #project-features
+    %h3 Project Features
+    %p No features attached to this project
+  #project-images
+    %h3 Project Images
+    %p No images attached to this project

@@ -1,0 +1,16 @@
+.col.left.brace
+  %h3
+    = @webpage.page_title
+    %span.courier> (keithRaymond)
+  %p= add_html_tags(@webpage.text)
+.col.right
+  %ul#projects
+    = render :partial => "/shared/project_slide", :collection => @projects
+  %article#blog
+  - unless @latest_blog.nil?
+    %hgroup.clearfix
+      %h4= link_to raw('latest<span>(blog):</span>'), blog_path(@latest_blog)
+      %h3= link_to @latest_blog.title, blog_path(@latest_blog)
+    %time{:datetime => @latest_blog.updated_at.strftime('%Y-%m-%d')}= @latest_blog.updated_at.strftime('%B %d, %Y')
+    %p= preview_text(@latest_blog.text)
+    %p= link_to "Read more", blog_show_path(@latest_blog)

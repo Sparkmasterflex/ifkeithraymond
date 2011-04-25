@@ -1,0 +1,17 @@
+<div>
+  <h1>Please Log In</h1>
+  <%= show_notice %>
+  <%= form_for @user_session, :url => login_path(@user_session), :method => :post do |f| %>
+    <div class="formfield">
+      <%= f.label :login, "Username:" %>
+      <%= f.text_field :login %>
+    </div>
+    <div class="formfield">
+      <%= f.label :password, "Password:" %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="formfield">
+      <%= f.submit "Login" %>
+    </div>
+  <% end %>
+</div>

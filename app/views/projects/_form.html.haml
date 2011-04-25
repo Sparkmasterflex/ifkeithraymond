@@ -1,0 +1,41 @@
+- content_for :jstemplates do
+  = raw %(var new_feature="#{generate_template(f, :features, :partial => "/features/feature", :form_builder_local => :feat)}")
+  = raw %(var new_image="#{generate_template(f, :images, :partial => "/images/image_field", :form_builder_local => :img)}")
+= f.hidden_field :updated_by, :value => current_user.id
+.formfield
+  = f.label :title, 'Project Title'
+  = f.text_field :title
+.formfield.clearfix
+  = hidden_field_tag "project[front_page]", '0', {:id => nil}
+  = check_box_tag "project[front_page]", "1", f.object.front_page, {:id => nil}
+  = f.label :front_page, 'Front page?'
+.formfield
+  = f.label :text, 'Project Description'
+  = f.text_area :text
+.formfield
+  = f.label :client
+  = f.text_field :client
+.formfield
+  = f.label :url, 'Project URL'
+  = f.text_field :url
+.formfield
+  = f.label :progress, 'Project Progress (%)'
+  = f.text_field :progress, :maxlength => 3
+.formfield
+  = f.label :status, 'Project Status'
+  = f.select :status, Project::Status.options_for_select
+.formfield
+  = f.label :start_date
+  = f.text_field :start_date
+.formfield
+  = f.label :end_date, 'End Date (actual or estimated)'
+  = f.text_field :end_date
+#features
+  %h4 Features
+= link_to 'Add Project Feature', '#feature', {:class => "add icon add_nested_item", "data-update" => "features", "data-template" => "new_feature", :title => "Add a Feature"}
+#images
+  %h4 Images
+= link_to 'Add an Image', '#image', {:class => "add icon add_nested_item", "data-update" => "images", "data-template" => "new_image", :title => "Add an Image"}
+.formfield.clearfix
+  - Project::Technology::LABELS.each do |key, value|
+    = render :partial => 'technology', :locals => {:key => key, :value => value, :f => f}

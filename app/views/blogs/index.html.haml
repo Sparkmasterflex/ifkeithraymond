@@ -1,0 +1,18 @@
+#blogs.leftcol
+  %h3 Blog Posts
+  = render :partial => 'blog_preview', :collection => @blogs, :as => :blog
+  = will_paginate @blogs
+.rightcol
+
+  %h3 By Category:
+  %ul
+    %li= link_to "All Blogs", all_blogs_path
+    - Blog.available_categories.each do |c|
+      %li= link_to Blog::Categories::LABELS[c], all_blogs_path(:category => c)
+  %h3 By Date:
+  %ul
+    %li= link_to "All Blogs", all_blogs_path
+    - unless @months.nil?
+      - @months.each do |m|
+        %li= link_to m, blogs_path(:month => m)
+  

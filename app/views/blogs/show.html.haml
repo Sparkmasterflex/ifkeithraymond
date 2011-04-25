@@ -1,0 +1,12 @@
+.col.main.brace
+  %h3= raw "blog<span class=\"courier\">(#{@blog.title})</span>"
+  %article
+    %time{:datetime => @blog.updated_at.strftime('%Y-%m-%d')}= @blog.updated_at.strftime('%B %d, %Y')
+    %p= add_html_tags(@blog.text)
+.col.sidebar
+  - unless @images.blank?
+    %h3 gallery
+    %ul#gallery.clearfix
+      - @images.each do |img|
+        %li= link_to image_tag(img.attachment.url(:thumb), {:alt => @blog.title, :title => img.caption}), img.attachment.url(:preview)
+  = render :partial => 'sidebar'

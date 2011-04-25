@@ -1,0 +1,9 @@
+section#header,
+section#content .col.right ul#projects { filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50030D', endColorstr='#890D1E',GradientType=0 ); }
+section#footer { filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#890D1E', endColorstr='#50030D',GradientType=0 ); }
+
+.col.right menu li a { filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50030D', endColorstr='#A82435',GradientType=0 ); }
+
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#CECECE',GradientType=0 );  blog even
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#969696',GradientType=0 ); slideshow button 'about'
+*/

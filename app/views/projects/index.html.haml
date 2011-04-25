@@ -1,0 +1,5 @@
+.leftcol
+  %h3 Projects
+  %ul
+    = render :partial => 'project_link', :collection => @projects_page
+  = will_paginate @projects_page
