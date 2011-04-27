@@ -5,8 +5,8 @@ class Project < ActiveRecord::Base
       find(:all, :conditions => {:enabled => true}, :order => :position)
     end
 
-    def first_image(page_id)
-      find(:first, :conditions => {:attachable_id => project_id, :enabled => true })
+    def first_enabled
+      find(:first, :conditions => {:enabled => true }, :order => :position)
     end
   end
 

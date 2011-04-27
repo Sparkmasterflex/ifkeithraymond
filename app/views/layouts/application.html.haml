@@ -26,6 +26,12 @@
     %section#footer
       %footer.clearfix
         = render :partial => '/layouts/navigation', :locals => {:object => current_page(params)}
+        #social
+          %ul.clearfix
+            %li= link_to "Follow me on Twitter", 'http://www.twitter.com/Sparkmasterflex', {:class => 'twitter hidden', :rel => 'external'}
+            %li= link_to "Linkedin", 'http://www.linkedin.com/pub/keith-raymond/32/940/b27', {:class => 'linkedin  hidden', :rel => 'external'}
+            %li.courior if(kR)
+            %li= link_to "Facebook", 'http://www.facebook.com/pages/ifkeithraymondcom/216142555065428?ref=ts', {:class => 'facebook  hidden', :rel => 'external'}
   :javascript
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-22331051-1']);

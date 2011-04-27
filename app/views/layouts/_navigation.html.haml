@@ -1,4 +1,4 @@
-%nav
+%nav.clearfix
   %ul.courier
     %li{:class => "#{is_current(object, 'home')}"}= link_to 'home',      '/'
     %li{:class => "#{is_current(object, 'about')}"}= link_to 'about',     show_path({:page_alias => 'about'})
