@@ -477,36 +477,42 @@ section#footer {
             text-transform: uppercase; }
         section#footer footer nav ul li.current a {
           text-transform: uppercase; }
-    section#footer footer #social {
-      width: 100%; }
-      section#footer footer #social ul {
-        width: 32em;
-        margin: 2em auto 0; }
-        section#footer footer #social ul li {
-          float: left; }
-          section#footer footer #social ul li a {
-            margin-top: 0.85em;
-            width: 2.78em;
-            height: 2.78em;
-            display: block; }
-            section#footer footer #social ul li a.twitter {
-              background: url(images/twitter.png) no-repeat center center; }
-            section#footer footer #social ul li a.linkedin {
-              background: url(images/linkedin.png) no-repeat center center; }
-            section#footer footer #social ul li a.facebook {
-              background: url(images/facebook.png) no-repeat center center; }
-          section#footer footer #social ul li.courior {
-            width: 4.5em;
-            padding: 1.8em 0;
-            text-align: center;
-            color: #fff;
-            margin: 0 0.63em;
-            background: -moz-linear-gradient(top, #50030d 7%, #890d1e 90%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(7%, #50030d), color-stop(90%, #890d1e));
-            -moz-border-radius: 40px;
-            -webkit-border-radius: 40px;
-            -webkit-box-shadow: 1px 1px 7px #fcf7cc, -1px -1px 7px #fcf7cc;
-            -moz-box-shadow: 1px 1px 7px #fcf7cc, -1px -1px 7px #fcf7cc; }
+    section#footer footer ul#social {
+      width: 32em;
+      margin: 2em auto 0; }
+      section#footer footer ul#social:hover li a {
+        opacity: 1;
+        margin: 0.85em 0 0; }
+      section#footer footer ul#social li {
+        float: left; }
+        section#footer footer ul#social li a {
+          margin-top: 0.85em;
+          width: 2.78em;
+          height: 2.78em;
+          display: block;
+          opacity: 0.20;
+          -webkit-transition: opacity 0.25s ease-in-out;
+          -moz-transition: opacity 0.25s ease-in-out; }
+          section#footer footer ul#social li a.twitter {
+            background: url(images/twitter.png) no-repeat center center; }
+          section#footer footer ul#social li a.linkedin {
+            background: url(images/linkedin.png) no-repeat center center; }
+          section#footer footer ul#social li a.facebook {
+            background: url(images/facebook.png) no-repeat center center; }
+        section#footer footer ul#social li.courier {
+          position: relative;
+          z-index: 20;
+          width: 4.5em;
+          padding: 1.8em 0;
+          text-align: center;
+          color: #fff;
+          margin: 0 0.63em;
+          background: -moz-linear-gradient(top, #50030d 7%, #890d1e 90%);
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(7%, #50030d), color-stop(90%, #890d1e));
+          -moz-border-radius: 40px;
+          -webkit-border-radius: 40px;
+          -webkit-box-shadow: 1px 1px 7px #fcf7cc, -1px -1px 7px #fcf7cc;
+          -moz-box-shadow: 1px 1px 7px #fcf7cc, -1px -1px 7px #fcf7cc; }
 
 /*-- /section#footer --*/
 /*--------- Errors -----------*/

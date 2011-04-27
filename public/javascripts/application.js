@@ -1,5 +1,5 @@
-document.observe('dom:loaded', function(){
-  $$('a[rel="external"]').invoke('writeAttribute', 'target', '_blank');
+document.observe('dom:loaded', function(){  
+  $$('a[rel="external"]').invoke('writeAttribute', 'target', '_blank'); 
 
   if($('projects') && $('webpages')) {
     new SlideShow({
